@@ -1,5 +1,20 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="col-md-4 col-md-offset-4">
+    <h4>This is where HA-S works</h4>
+    <div class="form-group" style="width:400px">
+    <p>
+        <input type="input" class="form-control input-sm"  ng-model="load_info">
+        <button class="btn btn-primary btn-sm btn-block" ng-click="generate_pixel(load_info)">Generate pixel</button>
+    </p>
+    
+    <p>
+        <input class="form-control input-sm" type="input" ng-model="service_uid" >
+        <input class="form-control input-sm" type="input" ng-model="hash_phrase" >
+        <button  class="btn btn-primary btn-sm btn-block" ng-click="add_handshakeid_to_pixel(service_uid, hash_phrase)">Update pixel with uid info</button>
+    </p>
+    
+    <p>
+        <input class="form-control input-sm" type="text" ng-model="handshake_pixel">
+        <button  class="btn btn-primary btn-sm btn-block" ng-click="serve_pixel(handshake_pixel)">Serve pixel to HS-I</button>
+    </p>
+    </div>
+</div>
