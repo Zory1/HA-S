@@ -25,12 +25,14 @@ angular.module('myApp.view2', ['ngRoute'])
   }
   
   s.serve_pixel =  function(handshake_pixel) {
-    var url = 'https://preview.c9users.io/zory/zoryapps/angular-seed/app/index.html?_c9_id=livepreview0&_c9_host=https://ide.c9.io#/view1/:' + handshake_pixel;
-    alert(url);
-    return   http( {method: 'GET', url}) 
+    var url = 'https://server-app-zory.c9users.io:8080/pixels';
+    var data = {};
+    data["id_received"] = handshake_pixel;
+    return   http.post(url,data) 
             .then(function successCallback(response){ 
                    
-                         console.log("Request was successful, pixel passed on: "+ handshake_pixel); 
+                         console.log("Request was successful, pixel passed on: "+ handshake_pixel);
+                         console.log(response);
                         }, function errorCallback(response) { 
   
                     if( response.status == 404) {
